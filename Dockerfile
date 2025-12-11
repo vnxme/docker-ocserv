@@ -62,6 +62,6 @@ RUN buildDeps=" \
 WORKDIR /etc/ocserv
 
 EXPOSE 443
-EXPOSE 4443/udp
+EXPOSE 443/udp
 
 CMD ["ocserv", "-c", "/etc/ocserv/ocserv.conf", "-f"]

@@ -52,6 +52,7 @@ RUN buildDeps=" \
 		iptables \
 		iptables-legacy \
 		iputils-ping \
+		libcap \
 		net-tools \
 		openssl \
 		vlan \

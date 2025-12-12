@@ -47,6 +47,7 @@ RUN buildDeps=" \
 	&& apk del --purge .build-deps \
 	&& apk add --no-cache --purge --clean-protected --virtual .run-deps ${runDeps} \
 	&& runExtras=" \
+		bash \
 		curl \
 		iproute2 \
 		iptables \

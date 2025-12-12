@@ -57,11 +57,16 @@ RUN buildDeps=" \
 		openssl \
 		vlan \
 	"; echo "${runExtras}"\
-	&& apk add --no-cache --purge --clean-protected --virtual .run-extras ${runExtras}
+	&& apk add --no-cache --purge --clean-protected --virtual .run-extras ${runExtras} \
+	&& mkdir -p /app/hooks/{up,down}
 
-WORKDIR /etc/ocserv
+COPY entrypoint.sh /app/
+RUN chmod 755 /app/*.sh
+
+WORKDIR /app
 
 EXPOSE 443
 EXPOSE 443/udp
 
-CMD ["ocserv", "-c", "/etc/ocserv/ocserv.conf", "-f"]
+CMD []
+ENTRYPOINT ["/app/entrypoint.sh"]

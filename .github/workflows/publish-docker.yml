@@ -24,6 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
+          flavor: latest=true
           images: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
           tags: |
             type=schedule

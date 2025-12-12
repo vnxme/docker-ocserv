@@ -58,7 +58,7 @@ RUN buildDeps=" \
 		vlan \
 	"; echo "${runExtras}"\
 	&& apk add --no-cache --purge --clean-protected --virtual .run-extras ${runExtras} \
-	&& mkdir -p /app/hooks/{up,down}
+	&& mkdir -p /app/hooks/up /app/hooks/down
 
 COPY entrypoint.sh /app/
 RUN chmod 755 /app/*.sh

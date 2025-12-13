@@ -27,9 +27,9 @@ PIDS=()
 firewall_up() {
 	local M="${MASQUERADE,,:-}"
 
-	if [ -n "$(which iptables)" ] && [ $(iptables -t filter -L 2>/dev/null 1>&2 || false; echo $?) -gt 0 ]; then
+	if [ -n "$(which iptables)" ] && [ $(iptables -t filter -L 2>/dev/null 1>&2; echo $?) -eq 0 ]; then
 		IPT4='iptables'
-	elif [ -n "$(which iptables-legacy)" ] && [ $(iptables-legacy -t filter -L 2>/dev/null 1>&2 || false; echo $?) -gt 0 ]; then
+	elif [ -n "$(which iptables-legacy)" ] && [ $(iptables-legacy -t filter -L 2>/dev/null 1>&2; echo $?) -eq 0 ]; then
 		IPT4='iptables-legacy'
 	fi
 
@@ -57,9 +57,9 @@ firewall_up() {
 		fi
 	fi
 
-	if [ -n "$(which ip6tables)" ] && [ $(ip6tables -t filter -L 2>/dev/null 1>&2 || false; echo $?) -gt 0 ]; then
+	if [ -n "$(which ip6tables)" ] && [ $(ip6tables -t filter -L 2>/dev/null 1>&2; echo $?) -eq 0 ]; then
 		IPT6='ip6tables'
-	elif [ -n "$(which ip6tables-legacy)" ] && [ $(ip6tables-legacy -t filter -L 2>/dev/null 1>&2 || false; echo $?) -gt 0 ]; then
+	elif [ -n "$(which ip6tables-legacy)" ] && [ $(ip6tables-legacy -t filter -L 2>/dev/null 1>&2; echo $?) -eq 0 ]; then
 		IPT6='ip6tables-legacy'
 	fi
 

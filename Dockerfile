@@ -12,6 +12,7 @@ RUN buildDeps=" \
 		libev-dev \
 		libnl3-dev \
 		libseccomp-dev \
+		libssl-dev \
 		linux-headers \
 		linux-pam-dev \
 		lz4-dev \
@@ -27,7 +28,7 @@ RUN buildDeps=" \
 	&& tar -xf ocserv.tar.xz -C /usr/src/ocserv --strip-components=1 \
 	&& rm ocserv.tar.xz* \
 	&& cd /usr/src/ocserv \
-	&& ./configure \
+	&& ./configure --with-openssl --without-gnutls \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& mkdir -p /etc/ocserv \

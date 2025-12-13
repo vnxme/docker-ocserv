@@ -12,11 +12,11 @@ RUN buildDeps=" \
 		libev-dev \
 		libnl3-dev \
 		libseccomp-dev \
-		libssl-dev \
 		linux-headers \
 		linux-pam-dev \
 		lz4-dev \
 		make \
+		openssl-dev \
 		readline-dev \
 		tar \
 		xz \
